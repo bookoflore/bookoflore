@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "monitoring_configuration": {
+    "blockchain_monitoring": {
+      "chains": {
+        "ethereum": {
+          "priority": 1,
+          "block_time": 12,
+          "confirmations_required": 12,
+          "volume_multiplier": 1.0
+        },
+        "arbitrum": {
+          "priority": 2,
+          "block_time": 0.25,
+          "confirmations_required": 64,
+          "volume_multiplier": 1.2
+        },
+        "optimism": {
+          "priority": 2,
+          "block_time": 2,
+          "confirmations_required": 32,
+          "volume_multiplier": 1.2
+        }
+      },
+      "mempool_monitoring": {
+        "enabled": true,
+        "max_pending_txs": 10000,
+        "update_frequency_ms": 100,
+        "priority_gas_multiplier": 1.5
+      }
+    },
+    "alert_system": {
+      "notification_levels": {
+        "critical": {
+          "channels": ["immediate", "broadcast", "admin"],
+          "retry_interval_ms": 1000,
+          "max_retries": 3
+        },
+        "high": {
+          "channels": ["standard", "admin"],
+          "retry_interval_ms": 5000,
+          "max_retries": 2
+        },
+        "moderate": {
+          "channels": ["standard"],
+          "retry_interval_ms": 10000,
+          "max_retries": 1
+        }
+      }
+    }
+  }
+}
