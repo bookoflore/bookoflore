@@ -1,4 +1,4 @@
-AI CHRONICLE SYSTEM [v2.0.0]
+AI CHRONICLE SYSTEM [v2.5.3]
 ============================================
 
 DISCLAIMER AND OPEN SOURCE DECLARATION
