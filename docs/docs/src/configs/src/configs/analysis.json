@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "analysis_parameters": {
+    "market_analysis": {
+      "time_windows": {
+        "short_term": {
+          "duration_seconds": 300,
+          "weight": 0.4,
+          "minimum_data_points": 5
+        },
+        "medium_term": {
+          "duration_seconds": 3600,
+          "weight": 0.3,
+          "minimum_data_points": 12
+        },
+        "long_term": {
+          "duration_seconds": 86400,
+          "weight": 0.3,
+          "minimum_data_points": 24
+        }
+      },
+      "impact_assessment": {
+        "volume_analysis": {
+          "baseline_calculation": "weighted_moving_average",
+          "window_size": 24,
+          "weight_decay": 0.95
+        },
+        "price_analysis": {
+          "volatility_measurement": "exponential_moving_std",
+          "window_size": 12,
+          "sensitivity": 0.85
+        },
+        "liquidity_analysis": {
+          "depth_measurement": "weighted_pool_depth",
+          "threshold_multiplier": 1.5,
+          "minimum_pools": 3
+        }
+      }
+    },
+    "pattern_analysis": {
+      "recognition_parameters": {
+        "minimum_confidence": 0.85,
+        "pattern_length": 10,
+        "correlation_threshold": 0.7
+      },
+      "validation_requirements": {
+        "minimum_occurrences": 3,
+        "maximum_gap": 300,
+        "confirmation_threshold": 0.9
+      }
+    }
+  }
+}
