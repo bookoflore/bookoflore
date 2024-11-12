@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "system_thresholds": {
+    "performance": {
+      "latency": {
+        "critical_events": 100,
+        "high_priority": 500,
+        "standard": 2000,
+        "units": "milliseconds"
+      },
+      "throughput": {
+        "events_per_second": 5000,
+        "patterns_per_second": 1000,
+        "docs_per_second": 100
+      },
+      "accuracy": {
+        "false_positives_max": 0.001,
+        "pattern_recognition_min": 0.95,
+        "classification_accuracy_min": 0.98
+      }
+    },
+    "market_impact": {
+      "critical": {
+        "volume_change": 0.15,
+        "price_impact": 0.10,
+        "liquidity_change": 0.20
+      },
+      "high": {
+        "volume_change": 0.10,
+        "price_impact": 0.05,
+        "liquidity_change": 0.15
+      },
+      "moderate": {
+        "volume_change": 0.05,
+        "price_impact": 0.02,
+        "liquidity_change": 0.10
+      }
+    }
+  }
+}
