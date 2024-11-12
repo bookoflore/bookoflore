@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  chronicle-system:
+    build: .
+    container_name: chronicle-system
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./logs:/app/logs
+      - ./config:/app/config
+    restart: unless-stopped
+    
+  monitoring:
+    image: grafana/grafana:latest
+    container_name: chronicle-monitoring
+    ports:
+      - "3001:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    
+  database:
+    image: timescaledb/timescaledb:latest-pg13
+    container_name: chronicle-db
+    environment:
+      - POSTGRES_PASSWORD=chronicle
+      - POSTGRES_USER=chronicle
+      - POSTGRES_DB=chronicle_events
+    volumes:
+      - timescale-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  grafana-storage:
+  timescale-data:
