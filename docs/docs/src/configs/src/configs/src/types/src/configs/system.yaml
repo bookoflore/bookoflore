@@ -1,0 +1,32 @@
+# System configuration in YAML format
+
+version: 2.0.0
+system:
+  performance:
+    max_events_per_second: 5000
+    pattern_matching_rate: 1000
+    documentation_rate: 100
+    
+  chains:
+    ethereum:
+      rpc_endpoints:
+        - wss://eth-mainnet.example.com
+        - wss://eth-backup.example.com
+      block_time: 12
+      confirmations: 12
+      
+    arbitrum:
+      rpc_endpoints:
+        - wss://arb-mainnet.example.com
+      block_time: 0.25
+      confirmations: 64
+
+  monitoring:
+    mempool:
+      enabled: true
+      max_pending: 10000
+      update_frequency_ms: 100
+      
+    metrics:
+      collection_interval: 60
+      retention_period: 604800  # 1 week
